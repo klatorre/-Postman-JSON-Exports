@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "b3bfc55c-72fc-4a75-87f2-6860e2faecad",
+		"name": "Yelp API Requests and Tests",
+		"description": "This collection will show a variety of Yelp API endpoint requests, and tests for successful HTTP requests.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Business Search: Mexican - Westminster, Colorado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer _PBKlAANItGPKtXZgPnzVcWXDqB-Pinpjn_7KnJR1leTGPNms29oVZQ8OB5jlvBjjMVHMztWVeb5Czt-Q2dD9861T845b96_ORHFMVlVRHuZd6xi7HaizAspiRyWX3Yx"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/businesses/search?term=mexican&location=westminster colorado",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"businesses",
+						"search"
+					],
+					"query": [
+						{
+							"key": "term",
+							"value": "mexican"
+						},
+						{
+							"key": "location",
+							"value": "westminster colorado"
+						}
+					]
+				},
+				"description": "This endpoint request will utilize the Yelp API to search and display (up to 1,000) a list of Mexican restaurants in Westminster, Colorado."
+			},
+			"response": []
+		},
+		{
+			"name": "Business Reviews: Corona's Westminster, Colorado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer _PBKlAANItGPKtXZgPnzVcWXDqB-Pinpjn_7KnJR1leTGPNms29oVZQ8OB5jlvBjjMVHMztWVeb5Czt-Q2dD9861T845b96_ORHFMVlVRHuZd6xi7HaizAspiRyWX3Yx"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/businesses/coronas-mexican-grill-westminster/reviews",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"businesses",
+						"coronas-mexican-grill-westminster",
+						"reviews"
+					]
+				},
+				"description": "This endpoint request will utilize the Yelp API to display three review excerpts for the Mexican restaurant - Corona's, in Westminster, Colorado."
+			},
+			"response": []
+		},
+		{
+			"name": "Business Phone Search: Chili's Westminster, Colorado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer _PBKlAANItGPKtXZgPnzVcWXDqB-Pinpjn_7KnJR1leTGPNms29oVZQ8OB5jlvBjjMVHMztWVeb5Czt-Q2dD9861T845b96_ORHFMVlVRHuZd6xi7HaizAspiRyWX3Yx"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/businesses/search/phone?phone=+13034672218",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"businesses",
+						"search",
+						"phone"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "+13034672218"
+						}
+					]
+				},
+				"description": "This endpoint request will utilize the Yelp API to search based on a business phone # - in this case, the Chili's in Towne Center - Westminster, Colorado."
+			},
+			"response": []
+		},
+		{
+			"name": "Delivery Transaction Search: Arvada, Colorado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer _PBKlAANItGPKtXZgPnzVcWXDqB-Pinpjn_7KnJR1leTGPNms29oVZQ8OB5jlvBjjMVHMztWVeb5Czt-Q2dD9861T845b96_ORHFMVlVRHuZd6xi7HaizAspiRyWX3Yx"
+					}
+				],
+				"url": {
+					"raw": "https://api.yelp.com/v3/transactions/delivery/search?location=arvada colorado",
+					"protocol": "https",
+					"host": [
+						"api",
+						"yelp",
+						"com"
+					],
+					"path": [
+						"v3",
+						"transactions",
+						"delivery",
+						"search"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "arvada colorado"
+						}
+					]
+				},
+				"description": "This endpoint request will utilize the Yelp API to display restaurants that will deliver to Arvada, Colorado."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

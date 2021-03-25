@@ -1,0 +1,1055 @@
+{
+	"info": {
+		"_postman_id": "bef2cc47-2585-43fa-8883-8fae44572805",
+		"name": "Giant Bomb API Requests and Tests",
+		"description": "This collection will utilize the Giant Bomb API to run endpoint requests, and tests for successful HTTP requests.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search - Company Name - SNK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.giantbomb.com/api/search/?format=json&api_key=f44548bf8cd02d58d5fcb7de55efb6374f1c3bd3&query=\"snk\"&resources=company",
+					"protocol": "http",
+					"host": [
+						"www",
+						"giantbomb",
+						"com"
+					],
+					"path": [
+						"api",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "tweet.fields",
+							"value": "",
+							"description": "Comma-separated list of fields for the Tweet object.\n\nAllowed values:\nattachments,author_id,context_annotations,conversation_id,created_at,entities,geo,id,in_reply_to_user_id,lang,non_public_metrics,organic_metrics,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,source,text,withheld\n\nDefault values:\nid,text\n\nOAuth1.0a User Context authorization required if any of the following fields are included in the request:\nnon_public_metrics,organic_metrics,promoted_metrics\n",
+							"disabled": true
+						},
+						{
+							"key": "expansions",
+							"value": "",
+							"description": "Comma-separated list of fields to expand. Expansions enable requests to expand an ID into a full object in the includes response object.\n\nAllowed values: attachments.poll_ids,attachments.media_keys,author_id,geo.place_id,in_reply_to_user_id,referenced_tweets.id,entities.mentions.username,referenced_tweets.id.author_id\n\nDefault values: none",
+							"disabled": true
+						},
+						{
+							"key": "media.fields",
+							"value": "",
+							"description": "Comma-separated list of fields for the media object. Expansion required.\n\nAllowed values:\nduration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,width\n\nDefault values:\nmedia_key,type\n\nOAuth1.0a User Context authorization required if any of the following fields are included in the request:\nnon_public_metrics,organic_metrics,promoted_metrics",
+							"disabled": true
+						},
+						{
+							"key": "place.fields",
+							"value": "",
+							"description": "Comma-separated list of fields for the place object. Expansion required.\n\nAllowed values:\ncontained_within,country,country_code,full_name,geo,id,name,place_type\n\nDefault values:\nid,full_name",
+							"disabled": true
+						},
+						{
+							"key": "poll.fields",
+							"value": "",
+							"description": "Comma-separated list of fields for the poll object. Expansion required.\n\nAllowed values:\nduration_minutes,end_datetime,id,options,voting_status\n\nDefault values:\nid, options",
+							"disabled": true
+						},
+						{
+							"key": "user.fields",
+							"value": "",
+							"description": "Comma-separated list of fields for the user object. Expansion required.\n\nAllowed values:\ncreated_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld\n\nDefault values:\nid,name,username",
+							"disabled": true
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "api_key",
+							"value": "f44548bf8cd02d58d5fcb7de55efb6374f1c3bd3"
+						},
+						{
+							"key": "query",
+							"value": "\"snk\""
+						},
+						{
+							"key": "resources",
+							"value": "company"
+						}
+					]
+				},
+				"description": "This endpoint request will search the Giant Bomb database for the company SNK."
+			},
+			"response": [
+				{
+					"name": "200 Success - Request Place Fields",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/:id?expansions=geo.place_id&place.fields=contained_within,country,country_code,full_name,geo,id,name,place_type",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "tweet.fields",
+									"value": null,
+									"description": "attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,non_public_metrics,organic_metrics,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,source,text,withheld",
+									"disabled": true
+								},
+								{
+									"key": "expansions",
+									"value": "geo.place_id",
+									"description": "Comma-separated list of fields to expand. Expansions enable requests to expand an ID into a full object in the includes response object.\nAllowed values: attachments.poll_ids,attachments.media_keys,author_id,geo.place_id,in_reply_to_user_id,referenced_tweets.id\nDefault values: none"
+								},
+								{
+									"key": "media.fields",
+									"value": "",
+									"description": "duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,width",
+									"disabled": true
+								},
+								{
+									"key": "poll.fields",
+									"value": "duration_minutes,end_datetime,id,options,voting_status",
+									"description": "duration_minutes,end_datetime,id,options,voting_status",
+									"disabled": true
+								},
+								{
+									"key": "place.fields",
+									"value": "contained_within,country,country_code,full_name,geo,id,name,place_type",
+									"description": "contained_within,country,country_code,full_name,geo,id,name,place_type"
+								},
+								{
+									"key": "user.fields",
+									"value": null,
+									"description": "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1136017751028449283"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-disposition",
+							"value": "attachment; filename=json.json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "344"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 26 Jun 2020 14:33:35 GMT"
+						},
+						{
+							"key": "server",
+							"value": "tsa_b"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=631138519"
+						},
+						{
+							"key": "x-access-level",
+							"value": "read"
+						},
+						{
+							"key": "x-connection-hash",
+							"value": "61335280ba9cb7845500465db4fa22ab"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-rate-limit-limit",
+							"value": "15"
+						},
+						{
+							"key": "x-rate-limit-remaining",
+							"value": "12"
+						},
+						{
+							"key": "x-rate-limit-reset",
+							"value": "1593182720"
+						},
+						{
+							"key": "x-response-time",
+							"value": "59"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"geo\": {\n            \"place_id\": \"01a9a39529b27f36\"\n        },\n        \"id\": \"1136017751028449283\",\n        \"text\": \"We’re getting ready to #TapIntoTwitter with our NYC developer community! See you soon @TwitterNYC https://t.co/5rEn5dhsAq\"\n    },\n    \"includes\": {\n        \"places\": [\n            {\n                \"country\": \"United States\",\n                \"country_code\": \"US\",\n                \"full_name\": \"Manhattan, NY\",\n                \"geo\": {\n                    \"type\": \"Feature\",\n                    \"bbox\": [\n                        -74.026675,\n                        40.683935,\n                        -73.910408,\n                        40.877483\n                    ],\n                    \"properties\": {}\n                },\n                \"id\": \"01a9a39529b27f36\",\n                \"name\": \"Manhattan\",\n                \"place_type\": \"city\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "429 Rate Limit Exceeded",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/:id?tweet.fields=author_id&expansions=author_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "tweet.fields",
+									"value": "author_id",
+									"description": "attachments,author_id,context_annotations,conversation_id,created_at,entities,geo,id,in_reply_to_user_id,lang,non_public_metrics,organic_metrics,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,source,text,withheld"
+								},
+								{
+									"key": "expansions",
+									"value": "author_id",
+									"description": "Comma-separated list of fields to expand. Expansions enable requests to expand an ID into a full object in the includes response object.\nAllowed values: attachments.poll_ids,attachments.media_keys,author_id,geo.place_id,in_reply_to_user_id,referenced_tweets.id\nDefault values: none"
+								},
+								{
+									"key": "media.fields",
+									"value": "",
+									"description": "duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,width",
+									"disabled": true
+								},
+								{
+									"key": "poll.fields",
+									"value": "",
+									"description": "duration_minutes,end_datetime,id,options,voting_status",
+									"disabled": true
+								},
+								{
+									"key": "place.fields",
+									"value": "",
+									"description": "contained_within,country,country_code,full_name,geo,id,name,place_type",
+									"disabled": true
+								},
+								{
+									"key": "user.fields",
+									"value": null,
+									"description": "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"status": "Too Many Requests",
+					"code": 429,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "46"
+						},
+						{
+							"key": "content-type",
+							"value": "text/plain;charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 26 Jun 2020 15:19:39 GMT"
+						},
+						{
+							"key": "server",
+							"value": "tsa_b"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=631138519"
+						},
+						{
+							"key": "x-connection-hash",
+							"value": "bf6b8cccb0bc95bc56a50be4db9a2d09"
+						},
+						{
+							"key": "x-rate-limit-limit",
+							"value": "15"
+						},
+						{
+							"key": "x-rate-limit-remaining",
+							"value": "0"
+						},
+						{
+							"key": "x-rate-limit-reset",
+							"value": "1593185073"
+						},
+						{
+							"key": "x-response-time",
+							"value": "6"
+						}
+					],
+					"cookie": [],
+					"body": "Rate limit exceeded\n"
+				},
+				{
+					"name": "200 Success - Request Tweet fields",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/:id?tweet.fields=attachments,author_id,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source,text,withheld",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "tweet.fields",
+									"value": "attachments,author_id,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source,text,withheld",
+									"description": "attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,non_public_metrics,organic_metrics,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,source,text,withheld"
+								},
+								{
+									"key": "expansions",
+									"value": null,
+									"description": "Comma-separated list of fields to expand. Expansions enable requests to expand an ID into a full object in the includes response object.\n\nAllowed values: attachments.poll_ids,attachments.media_keys,author_id,geo.place_id,in_reply_to_user_id,referenced_tweets.id\n\nDefault values: none",
+									"disabled": true
+								},
+								{
+									"key": "media.fields",
+									"value": null,
+									"description": "duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,width",
+									"disabled": true
+								},
+								{
+									"key": "poll.fields",
+									"value": null,
+									"description": "duration_minutes,end_datetime,id,options,voting_status",
+									"disabled": true
+								},
+								{
+									"key": "place.fields",
+									"value": null,
+									"description": "contained_within,country,country_code,full_name,geo,id,name,place_type",
+									"disabled": true
+								},
+								{
+									"key": "user.fields",
+									"value": null,
+									"description": "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1275828087666679809"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-disposition",
+							"value": "attachment; filename=json.json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "605"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 26 Jun 2020 14:14:13 GMT"
+						},
+						{
+							"key": "server",
+							"value": "tsa_b"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=631138519"
+						},
+						{
+							"key": "x-access-level",
+							"value": "read"
+						},
+						{
+							"key": "x-connection-hash",
+							"value": "61335280ba9cb7845500465db4fa22ab"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-rate-limit-limit",
+							"value": "15"
+						},
+						{
+							"key": "x-rate-limit-remaining",
+							"value": "9"
+						},
+						{
+							"key": "x-rate-limit-reset",
+							"value": "1593181441"
+						},
+						{
+							"key": "x-response-time",
+							"value": "138"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"author_id\": \"2244994945\",\n        \"created_at\": \"2020-06-24T16:28:14.000Z\",\n        \"entities\": {\n            \"urls\": [\n                {\n                    \"start\": 140,\n                    \"end\": 163,\n                    \"url\": \"https://t.co/IKM3zo6ngu\",\n                    \"expanded_url\": \"https://blog.twitter.com/developer/en_us/topics/tips/2020/how-to-analyze-the-sentiment-of-your-own-tweets.html\",\n                    \"display_url\": \"blog.twitter.com/developer/en_u…\",\n                    \"images\": [\n                        {\n                            \"url\": \"https://pbs.twimg.com/news_img/1275828115110060033/WIbBrSld?format=jpg&name=orig\",\n                            \"width\": 1600,\n                            \"height\": 600\n                        },\n                        {\n                            \"url\": \"https://pbs.twimg.com/news_img/1275828115110060033/WIbBrSld?format=jpg&name=150x150\",\n                            \"width\": 150,\n                            \"height\": 150\n                        }\n                    ],\n                    \"status\": 200,\n                    \"title\": \"How to analyze the sentiment of your own Tweets\",\n                    \"description\": \"This post helps developers try out sentiment analysis by analyzing their own past Tweets.\",\n                    \"unwound_url\": \"https://blog.twitter.com/developer/en_us/topics/tips/2020/how-to-analyze-the-sentiment-of-your-own-tweets.html\"\n                }\n            ]\n        },\n        \"id\": \"1275828087666679809\",\n        \"lang\": \"en\",\n        \"possibly_sensitive\": false,\n        \"source\": \"Twitter Web App\",\n        \"text\": \"Learn how to create a sentiment score for your Tweets with Microsoft Azure, Python, and Twitter Developer Labs recent search functionality.\\nhttps://t.co/IKM3zo6ngu\"\n    }\n}"
+				},
+				{
+					"name": "200 Success - Request Poll Fields",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/:id?expansions=attachments.poll_ids&poll.fields=duration_minutes,end_datetime,id,options,voting_status",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "tweet.fields",
+									"value": null,
+									"description": "attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,non_public_metrics,organic_metrics,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,source,text,withheld",
+									"disabled": true
+								},
+								{
+									"key": "expansions",
+									"value": "attachments.poll_ids",
+									"description": "Comma-separated list of fields to expand. Expansions enable requests to expand an ID into a full object in the includes response object.\nAllowed values: attachments.poll_ids,attachments.media_keys,author_id,geo.place_id,in_reply_to_user_id,referenced_tweets.id\nDefault values: none"
+								},
+								{
+									"key": "media.fields",
+									"value": "",
+									"description": "duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,width",
+									"disabled": true
+								},
+								{
+									"key": "poll.fields",
+									"value": "duration_minutes,end_datetime,id,options,voting_status",
+									"description": "duration_minutes,end_datetime,id,options,voting_status"
+								},
+								{
+									"key": "place.fields",
+									"value": null,
+									"description": "contained_within,country,country_code,full_name,geo,id,name,place_type",
+									"disabled": true
+								},
+								{
+									"key": "user.fields",
+									"value": null,
+									"description": "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1199786642791452673"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-disposition",
+							"value": "attachment; filename=json.json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "258"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 26 Jun 2020 14:30:20 GMT"
+						},
+						{
+							"key": "server",
+							"value": "tsa_b"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=631138519"
+						},
+						{
+							"key": "x-access-level",
+							"value": "read"
+						},
+						{
+							"key": "x-connection-hash",
+							"value": "61335280ba9cb7845500465db4fa22ab"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-rate-limit-limit",
+							"value": "15"
+						},
+						{
+							"key": "x-rate-limit-remaining",
+							"value": "14"
+						},
+						{
+							"key": "x-rate-limit-reset",
+							"value": "1593182720"
+						},
+						{
+							"key": "x-response-time",
+							"value": "56"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"attachments\": {\n            \"poll_ids\": [\n                \"1199786642468413448\"\n            ]\n        },\n        \"id\": \"1199786642791452673\",\n        \"text\": \"C#\"\n    },\n    \"includes\": {\n        \"polls\": [\n            {\n                \"duration_minutes\": 1440,\n                \"end_datetime\": \"2019-11-28T20:26:41.000Z\",\n                \"id\": \"1199786642468413448\",\n                \"options\": [\n                    {\n                        \"position\": 1,\n                        \"label\": \"“C Sharp”\",\n                        \"votes\": 795\n                    },\n                    {\n                        \"position\": 2,\n                        \"label\": \"“C Hashtag”\",\n                        \"votes\": 156\n                    }\n                ],\n                \"voting_status\": \"closed\"\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "200 Success - Deleted Tweet",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/:id?tweet.fields=attachments,author_id,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source,text,withheld",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "tweet.fields",
+									"value": "attachments,author_id,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source,text,withheld",
+									"description": "attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,non_public_metrics,organic_metrics,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,source,text,withheld"
+								},
+								{
+									"key": "expansions",
+									"value": null,
+									"description": "Comma-separated list of fields to expand. Expansions enable requests to expand an ID into a full object in the includes response object.\n\nAllowed values: attachments.poll_ids,attachments.media_keys,author_id,geo.place_id,in_reply_to_user_id,referenced_tweets.id\n\nDefault values: none",
+									"disabled": true
+								},
+								{
+									"key": "media.fields",
+									"value": null,
+									"description": "duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,width",
+									"disabled": true
+								},
+								{
+									"key": "poll.fields",
+									"value": null,
+									"description": "duration_minutes,end_datetime,id,options,voting_status",
+									"disabled": true
+								},
+								{
+									"key": "place.fields",
+									"value": null,
+									"description": "contained_within,country,country_code,full_name,geo,id,name,place_type",
+									"disabled": true
+								},
+								{
+									"key": "user.fields",
+									"value": null,
+									"description": "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1276230436478386177"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-disposition",
+							"value": "attachment; filename=json.json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "197"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 26 Jun 2020 14:19:40 GMT"
+						},
+						{
+							"key": "server",
+							"value": "tsa_b"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=631138519"
+						},
+						{
+							"key": "x-access-level",
+							"value": "read"
+						},
+						{
+							"key": "x-connection-hash",
+							"value": "61335280ba9cb7845500465db4fa22ab"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-rate-limit-limit",
+							"value": "15"
+						},
+						{
+							"key": "x-rate-limit-remaining",
+							"value": "8"
+						},
+						{
+							"key": "x-rate-limit-reset",
+							"value": "1593181441"
+						},
+						{
+							"key": "x-response-time",
+							"value": "134"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"detail\": \"Could not find tweet with id: [1276230436478386177].\",\n            \"title\": \"Not Found Error\",\n            \"resource_type\": \"tweet\",\n            \"parameter\": \"id\",\n            \"value\": \"1276230436478386177\",\n            \"type\": \"https://api.twitter.com/2/problems/resource-not-found\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "200 Success - Default Payload (No additonal fields requested)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/:id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-disposition",
+							"value": "attachment; filename=json.json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "79"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Wed, 24 Jun 2020 17:13:16 GMT"
+						},
+						{
+							"key": "server",
+							"value": "tsa_b"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=631138519"
+						},
+						{
+							"key": "x-access-level",
+							"value": "read"
+						},
+						{
+							"key": "x-connection-hash",
+							"value": "86a90a7aa13fde1840d52be0d1faf5c4"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-rate-limit-limit",
+							"value": "15"
+						},
+						{
+							"key": "x-rate-limit-remaining",
+							"value": "0"
+						},
+						{
+							"key": "x-rate-limit-reset",
+							"value": "1593019345"
+						},
+						{
+							"key": "x-response-time",
+							"value": "211"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": \"20\",\n        \"text\": \"just setting up my twttr\"\n    }\n}"
+				},
+				{
+					"name": "200 Success - Request Media Fields",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/:id?tweet.fields=attachments,author_id,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source,text,withheld&expansions=attachments.media_keys&media.fields=duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								":id"
+							],
+							"query": [
+								{
+									"key": "tweet.fields",
+									"value": "attachments,author_id,created_at,entities,geo,id,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source,text,withheld",
+									"description": "attachments,author_id,context_annotations,created_at,entities,geo,id,in_reply_to_user_id,lang,non_public_metrics,organic_metrics,possibly_sensitive,promoted_metrics,public_metrics,referenced_tweets,source,text,withheld"
+								},
+								{
+									"key": "expansions",
+									"value": "attachments.media_keys",
+									"description": "Comma-separated list of fields to expand. Expansions enable requests to expand an ID into a full object in the includes response object.\n\nAllowed values: attachments.poll_ids,attachments.media_keys,author_id,geo.place_id,in_reply_to_user_id,referenced_tweets.id\n\nDefault values: none"
+								},
+								{
+									"key": "media.fields",
+									"value": "duration_ms,height,media_key,preview_image_url,public_metrics,type,url,width",
+									"description": "duration_ms,height,media_key,non_public_metrics,organic_metrics,preview_image_url,promoted_metrics,public_metrics,type,url,width"
+								},
+								{
+									"key": "poll.fields",
+									"value": null,
+									"description": "duration_minutes,end_datetime,id,options,voting_status",
+									"disabled": true
+								},
+								{
+									"key": "place.fields",
+									"value": null,
+									"description": "contained_within,country,country_code,full_name,geo,id,name,place_type",
+									"disabled": true
+								},
+								{
+									"key": "user.fields",
+									"value": null,
+									"description": "created_at,description,entities,id,location,name,pinned_tweet_id,profile_image_url,protected,public_metrics,url,username,verified,withheld",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1263145271946551300"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-disposition",
+							"value": "attachment; filename=json.json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "547"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 26 Jun 2020 14:23:50 GMT"
+						},
+						{
+							"key": "server",
+							"value": "tsa_b"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=631138519"
+						},
+						{
+							"key": "x-access-level",
+							"value": "read"
+						},
+						{
+							"key": "x-connection-hash",
+							"value": "61335280ba9cb7845500465db4fa22ab"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-rate-limit-limit",
+							"value": "15"
+						},
+						{
+							"key": "x-rate-limit-remaining",
+							"value": "4"
+						},
+						{
+							"key": "x-rate-limit-reset",
+							"value": "1593181441"
+						},
+						{
+							"key": "x-response-time",
+							"value": "146"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"attachments\": {\n            \"media_keys\": [\n                \"13_1263145212760805376\"\n            ]\n        },\n        \"author_id\": \"783214\",\n        \"created_at\": \"2020-05-20T16:31:15.000Z\",\n        \"entities\": {\n            \"urls\": [\n                {\n                    \"start\": 154,\n                    \"end\": 177,\n                    \"url\": \"https://t.co/pV53mvjAVT\",\n                    \"expanded_url\": \"https://twitter.com/Twitter/status/1263145271946551300/video/1\",\n                    \"display_url\": \"pic.twitter.com/pV53mvjAVT\"\n                }\n            ]\n        },\n        \"id\": \"1263145271946551300\",\n        \"lang\": \"en\",\n        \"possibly_sensitive\": false,\n        \"source\": \"Sprinklr\",\n        \"text\": \"Testing, testing...\\n\\nA new way to have a convo with exactly who you want. We’re starting with a small % globally, so keep your 👀 out to see it in action. https://t.co/pV53mvjAVT\"\n    },\n    \"includes\": {\n        \"media\": [\n            {\n                \"duration_ms\": 46947,\n                \"height\": 1080,\n                \"media_key\": \"13_1263145212760805376\",\n                \"preview_image_url\": \"https://pbs.twimg.com/media/EYeX7akWsAIP1_1.jpg\",\n                \"public_metrics\": {\n                    \"view_count\": 6891098\n                },\n                \"type\": \"video\",\n                \"width\": 1920\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Game Data - Cubivore",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://www.giantbomb.com/api/game/3030-15816/?api_key=f44548bf8cd02d58d5fcb7de55efb6374f1c3bd3&format=json&field_list=genres,name,deck,image",
+					"protocol": "http",
+					"host": [
+						"www",
+						"giantbomb",
+						"com"
+					],
+					"path": [
+						"api",
+						"game",
+						"3030-15816",
+						""
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "f44548bf8cd02d58d5fcb7de55efb6374f1c3bd3"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "field_list",
+							"value": "genres,name,deck,image"
+						}
+					]
+				},
+				"description": "Pulls up the Giant Bomb page data for the video game Cubivore."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
